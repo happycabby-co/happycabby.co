@@ -2,7 +2,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths: [ "site/**", ".github/workflows/pages.yml" ]
 
 permissions:
   contents: read
@@ -18,7 +17,6 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
         with:
-          path: site/
           package-manager: pnpm@latest
 
   deploy:
