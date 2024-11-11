@@ -1,8 +1,8 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
@@ -10,40 +10,69 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="bg-gradient-to-r from-white via-slate-100 to-white">
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
+		<main class="mx-auto p-8 w-full lg:w-3/4">
+			<div class="md:flex md:m-20 md:ml-8 md:gap-20">
+				<h1 class="text-4xl md:text-6xl font-bold">
+					<p class="whitespace-nowrap">Taxi company</p>
+					<p
+						class="h-30 bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-amber-500 to-amber-900"
+					>
+						management sim
+					</p>
+				</h1>
+				<p class="max-w-96 min-w-80 mx-auto m-2 text-lg font-normal">
+					Happy Cabby is an upcoming taxi management sim that puts you
+					in charge of running your very own taxi company.
+				</p>
+			</div>
+			<div class="mx-auto w-80">
+				<p class="font-bold text-center">Sign up for updates</p>
+				<form
+					id="form"
+					action="https://buttondown.email/api/emails/embed-subscribe/happycabby"
+					method="post"
+					target="_blank"
+					class="flex text-sm md:text-md"
+					onsubmit="document.getElementById('form').classList.add('hidden'); document.getElementById('thank-you').classList.remove('hidden');"
+				>
+					<div class="mx-auto p-6 flex flex-row gap-2">
+						<input
+							id="email"
+							type="email"
+							name="email"
+							class="h-8 rounded px-4 py-2"
+							required
+							placeholder="you@awesome.com"
+						/>
+						<input
+							type="submit"
+							class="rounded bg-amber-500 px-3 py-1.5"
+							value="Subscribe"
+						/>
+					</div>
+				</form>
+				<div id="thank-you" class="text-center hidden">Thank you!</div>
+			</div>
+			<p class="rounded-lg drop-shadow-md overflow-hidden py-24">
+				<img
+					class=""
+					src="/screenshots/dispatch-screen.png"
+					alt="Taxi company management sim"
+				/>
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<div>
+				<h2 class="text-3xl md:text-4xl font-bold">Features</h2>
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 justify-items-center"
+				>
+					<div class="size-80 bg-red-500 m-4"></div>
+					<div class="size-80 bg-red-500 m-4"></div>
+					<div class="size-80 bg-red-500 m-4"></div>
+					<div class="size-80 bg-red-500 m-4"></div>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
