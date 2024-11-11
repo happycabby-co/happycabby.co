@@ -19,26 +19,38 @@ const posts = (await getCollection("blog")).sort(
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
+			<section class="w-96 mx-auto">
+				<div class="w-8 mx-auto">
+					<a href="/rss.xml" target="_blank">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 hover:scale-110 hover:text-[#f26522] transition-all duration-500 ease-in-out">
+							<path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+					</a>
+				</div>
+				<ul class="flex flex-col justify-center p-4">
 					{
 						posts.map((post: any) => (
-							<li>
+							<li class="group">
 								<a href={`/blog/${post.slug}/`}>
 									<img
-										width={720}
-										height={360}
 										src={post.data.heroImage}
 										alt=""
+										class="rounded shadow-md saturate-50 group-hover:saturate-100 transition-all ease-in-out"
+										transition:name="hero"
 									/>
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate
-											date={post.data.pubDate}
-										/>
-									</p>
+									<div class="flex flex-col py-4">
+										<h4 class="font-bold text-2xl group-hover:text-black text-slate-600">
+											{post.data.title}
+										</h4>
+										<p class="font-">
+											<FormattedDate
+												date={post.data.pubDate}
+											/>
+										</p>
+										<div class="py-4 text-slate-800">{post.data.description}</div>
+									</div>
 								</a>
 							</li>
+							<hr class="py-4"/>
 						))
 					}
 				</ul>
